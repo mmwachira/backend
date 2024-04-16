@@ -1,6 +1,8 @@
-const express = require('express')
-const catsRouter = require('./routes/cat.routes')
-const birds = require('./routes/birds')
+const express = require('express');
+const bodyParser = require('body-parser');
+//const catsRouter = require('./routers/cat.routes')
+const birds = require('./routers/birds')
+const todoRouter = require('./routers/todoRouter')
 const app = express()
 
 // app.get('/', function (req, res) {
@@ -8,8 +10,9 @@ const app = express()
 // })
 
 app.use('/birds', birds)
-//app.use(express.json())
-app.use('/routes',catsRouter)
+app.use(bodyParser.json());
+//app.use('/routers',catsRouter)
+app.use('/routers', todoRouter);
 
 //const PORT = process.env.PORT || 3000;
 // app.listen(PORT, () => {
